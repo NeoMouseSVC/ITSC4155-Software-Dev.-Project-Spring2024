@@ -13,29 +13,96 @@
         android:id="@+id/madeit"
         android:layout_width="177dp"
         android:layout_height="61dp"
-        android:text="solve it!"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginEnd="117dp"
+        android:layout_marginBottom="47dp"
+        android:text="solveit!"
         android:textSize="48sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guessfeild"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/guessfeild"
         android:layout_width="273dp"
         android:layout_height="121dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="500dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginStart="69dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="69dp"
+        android:layout_marginBottom="28dp"
         android:ems="10"
-        android:hint="Enter your text"
+        android:hint="enter one letter to guess"
         android:inputType="text"
+        android:maxLength="1"
+        app:layout_constraintBottom_toTopOf="@+id/guessButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/madeit" />
+
+    <Button
+        android:id="@+id/hang_return"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="304dp"
+        android:layout_marginBottom="403dp"
+        android:text="Return"
+        app:layout_constraintBottom_toTopOf="@+id/guessfeild"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/guessButton"
+        android:layout_width="159dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="126dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="126dp"
+        android:layout_marginBottom="54dp"
+        android:text="Guess"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guessfeild" />
+
+    <TextView
+        android:id="@+id/category"
+        android:layout_width="185dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="111dp"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginBottom="159dp"
+        android:text="Category: Food"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toTopOf="@+id/madeit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/chances_counter"
+        android:layout_width="146dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="26dp"
+        android:text="Chances: "
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/category"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hang_return"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
