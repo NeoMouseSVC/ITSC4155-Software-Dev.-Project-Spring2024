@@ -15,8 +15,6 @@ public class CharacterFragment extends Fragment {
 
     // Add fields for the hangman body parts
     private ImageView head;
-    private ImageView body;
-    private ImageView leftArm;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -25,21 +23,14 @@ public class CharacterFragment extends Fragment {
 
         // Initialize the hangman body parts
         head = view.findViewById(R.id.imageView9);
-        body = view.findViewById(R.id.imageView10);
-        leftArm = view.findViewById(R.id.imageView11);
-
-        // Set adjustViewBounds to true for each body part
-        head.setAdjustViewBounds(true);
-        body.setAdjustViewBounds(true);
-        leftArm.setAdjustViewBounds(true);
 
         LinearLayout itemContainer = view.findViewById(R.id.itemContainer);
 
         // an array of Drawable resource IDs for the images
-        int[] imageResources = {R.drawable.head_customized_1, R.drawable.body_customized_1, R.drawable.arm1_customized_1};
+        int[] imageResources = {R.drawable.head, R.drawable.head_customized_1, R.drawable.head_customized_2, R.drawable.head_customized_3, R.drawable.head_customized_4, R.drawable.head_customized_5, R.drawable.head_customized_6, R.drawable.head_customized_7};
 
         // an array of the corresponding body parts
-        ImageView[] bodyParts = {head, body, leftArm};
+        ImageView[] bodyParts = {head, head, head, head, head, head, head, head};
 
         for (int i = 0; i < imageResources.length; i++) {
             ImageView imageView = new ImageView(getContext());
@@ -67,4 +58,9 @@ public class CharacterFragment extends Fragment {
         return view;
     }
 }
+
+
+
+
+
 
