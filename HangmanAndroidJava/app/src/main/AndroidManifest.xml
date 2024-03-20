@@ -19,7 +19,7 @@
             android:name=".settings_screen"
             android:exported="false" />
         <activity
-            android:name=".diffculty_screen"
+            android:name=".difficulty_screen"
             android:exported="false" />
         <activity
             android:name=".hang_game"
