@@ -35,10 +35,10 @@ public class CharacterFragment extends Fragment {
 
         LinearLayout itemContainer = view.findViewById(R.id.itemContainer);
 
-        // Assuming you have an array of Drawable resource IDs for the images
+        // an array of Drawable resource IDs for the images
         int[] imageResources = {R.drawable.head_customized_1, R.drawable.body_customized_1, R.drawable.arm1_customized_1};
 
-        // Assuming you have an array of the corresponding body parts
+        // an array of the corresponding body parts
         ImageView[] bodyParts = {head, body, leftArm};
 
         for (int i = 0; i < imageResources.length; i++) {
