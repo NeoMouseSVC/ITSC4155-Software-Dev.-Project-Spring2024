@@ -7,4 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".diffculty_screen">
 
+    <Button
+        android:id="@+id/return_diffculty"
+        android:layout_width="118dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="26dp"
+        android:layout_marginEnd="281dp"
+        android:layout_marginBottom="647dp"
+        android:text="Return"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

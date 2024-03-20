@@ -8,7 +8,7 @@
     tools:context=".customize_screen">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/return_customize"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
