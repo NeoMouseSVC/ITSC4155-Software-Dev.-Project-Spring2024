@@ -16,6 +16,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     static String selectedDifficulty = "";
+
+    private void startPlaying(String difficulty) {
+        Intent intent = new Intent(MainActivity.this, hang_game.class);
+        intent.putExtra("difficulty", difficulty);
+        startActivity(intent);
+        // NOT YET FUNCTIONAL Toast.makeText(MainActivity.this, "Difficulty : " + getDifficulty(), Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,14 +94,8 @@ public class MainActivity extends AppCompatActivity {
     public String getDifficulty() {
         return selectedDifficulty;
     }
-    // ATTEMPT to receive user input of difficulty from diff_screen to MainActivity to hang_game
-    // Method to start playing with selected difficulty
-    private void startPlaying(String difficulty) {
-        Intent intent = new Intent(MainActivity.this, hang_game.class);
-        intent.putExtra("difficulty", difficulty);
-        startActivity(intent);
-        Toast.makeText(MainActivity.this, "Difficulty : " + getDifficulty(), Toast.LENGTH_SHORT).show();
-    }
+
+
 
 
 }
