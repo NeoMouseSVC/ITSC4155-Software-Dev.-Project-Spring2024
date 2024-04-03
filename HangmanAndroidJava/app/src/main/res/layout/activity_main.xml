@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/space_background"
     tools:context=".MainActivity">
 
     <ImageView
@@ -19,9 +19,12 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="148dp"
+        android:layout_width="wrap_content"
         android:layout_height="105dp"
+        android:background="?android:attr/selectableItemBackground"
         android:text="Start"
+        android:textAllCaps="false"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,10 +32,12 @@
 
     <Button
         android:id="@+id/button2"
-        android:layout_width="146dp"
+        android:layout_width="wrap_content"
         android:layout_height="97dp"
         android:layout_marginTop="8dp"
+        android:background="?android:attr/selectableItemBackground"
         android:text="Customize"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,10 +45,12 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="163dp"
+        android:layout_width="wrap_content"
         android:layout_height="92dp"
         android:layout_marginTop="8dp"
+        android:background="?android:attr/selectableItemBackground"
         android:text="Difficulty"
+        android:textSize="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button2" />
