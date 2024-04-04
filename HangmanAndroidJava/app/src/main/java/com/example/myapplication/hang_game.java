@@ -2,12 +2,14 @@ package com.example.myapplication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -28,6 +30,7 @@ public class hang_game extends AppCompatActivity {
     private String currentWord;
     private char[] currentGuess;
     private int numberOfGuesses;
+    private String selectedDiff;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +44,21 @@ public class hang_game extends AppCompatActivity {
                 startActivity(new Intent(hang_game.this, MainActivity.class));
             }
         });
+        //Difficulty modifier
+        Intent i = getIntent();
+        if(i.getStringExtra("difficulty") != null){
+            String selected = i.getStringExtra("difficulty");
+            setSelectedDiff(i.getStringExtra("difficulty"));
+            Log.i("Difficulty Toast",selected);
+            TextView difficultyText = findViewById(R.id.difficulty);
+            difficultyText.setText(getString(R.string.difficulty_text,selected));
+            Toast.makeText(hang_game.this, "Difficulty : " + getSelectedDiff(), Toast.LENGTH_SHORT).show();
 
+        }else{
+            Log.i("Difficulty Failed","Difficulty Failed");
+        }
         startGame();
+
     }
 
     private void startGame() {
@@ -55,6 +71,7 @@ public class hang_game extends AppCompatActivity {
         numberOfGuesses = 6;
 
         updateScreen();
+
     }
 
     private void updateScreen() {
@@ -87,6 +104,13 @@ public class hang_game extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private String getSelectedDiff() {
+        return selectedDiff;
+    }
+    private void setSelectedDiff(String setter) {
+        selectedDiff = setter;
     }
 
     private String addSpaces(String str) {

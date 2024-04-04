@@ -3,6 +3,7 @@ package com.example.myapplication;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,18 +11,49 @@ import android.content.Intent;
 import android.widget.Toast;
 
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    static String selectedDifficulty = "";
+    String selectedDifficulty = "";
+    public String getSelectedDiff() {
+        return selectedDifficulty;
+    }
+    public void setSelectedDiff(String setter) {
+        selectedDifficulty = setter;
+    }
+    ActivityResultLauncher<Intent> activityResultLauncher =
+            registerForActivityResult(
+                    new ActivityResultContracts.StartActivityForResult(),
+                    new ActivityResultCallback<ActivityResult>(){
+                        @Override
+                        public void onActivityResult(ActivityResult activityResult){
+                            int result = activityResult.getResultCode();
+                            Intent data = activityResult.getData();
 
+                            if(result == RESULT_OK) {
+                                if(data != null){
+                                    String selectedDiff = data.getStringExtra("difficulty");
+                                    setSelectedDiff(selectedDiff);
+                                    Toast.makeText(MainActivity.this, "Difficulty : " + selectedDiff, Toast.LENGTH_SHORT).show();
+                                    //Log.i("Difficulty Toast",selectedDiff);
+                                    setSelectedDiff(selectedDiff);
+                                }else {
+                                    Toast.makeText(MainActivity.this, "Difficulty is null ", Toast.LENGTH_SHORT).show();
+                                }
+                            }else{
+                                Toast.makeText(MainActivity.this, "Difficulty not selected ", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
     private void startPlaying(String difficulty) {
         Intent intent = new Intent(MainActivity.this, hang_game.class);
         intent.putExtra("difficulty", difficulty);
+        //Log.i("Difficulty Toast",difficulty);
         startActivity(intent);
-        // NOT YET FUNCTIONAL Toast.makeText(MainActivity.this, "Difficulty : " + getDifficulty(), Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -41,25 +73,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // starts new activity/ play button
-                startPlaying(selectedDifficulty);
+                startPlaying(getSelectedDiff());
             }
         });
 
         // START DIFFICULTY SECTION
 
-
-
         diff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Start DifficultyScreen activity
-                startActivity(new Intent(MainActivity.this, difficulty_screen.class));
-
-                // After user picks difficulty
-                Intent intent = getIntent();
-                String selectedDiff = intent.getStringExtra("difficulty");
-                changeDifficulty(selectedDiff);
-
+                Intent intent = new Intent(MainActivity.this, difficulty_screen.class);
+                activityResultLauncher.launch(intent);
             }
 
         });
@@ -84,18 +109,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
-    // Below = ATTEMPT to receive user input of difficulty from diff_screen to MainActivity to hang_game
-    // Method to handle difficulty change
-    public void changeDifficulty(String difficulty) {
-        selectedDifficulty = difficulty;
-        //Toast.makeText(MainActivity.this, "Difficulty : " + selectedDifficulty, Toast.LENGTH_SHORT).show();
-    }
-    public String getDifficulty() {
-        return selectedDifficulty;
-    }
-
-
 
 
 }

@@ -68,10 +68,9 @@ public class difficulty_screen extends AppCompatActivity {
     private void sendDifficultyBack(String difficulty) {
         // Create an intent to pass data back to MainActivity
         Toast.makeText(difficulty_screen.this, "Difficulty: " + difficulty, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-        intent.putExtra("difficulty", difficulty);
-        startActivity(intent);
-        // setResult(RESULT_OK, intent);
+        Intent data = new Intent();
+        data.putExtra("difficulty", difficulty);
+        setResult(RESULT_OK, data);
         finish(); // Finish this activity to return to MainActivity
     }
 
