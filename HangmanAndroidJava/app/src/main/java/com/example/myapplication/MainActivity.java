@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
                                     setSelectedDiff(selectedDiff);
                                     Toast.makeText(MainActivity.this, "Difficulty : " + selectedDiff, Toast.LENGTH_SHORT).show();
                                     //Log.i("Difficulty Toast",selectedDiff);
-                                    setSelectedDiff(selectedDiff);
+
                                 }else {
                                     Toast.makeText(MainActivity.this, "Difficulty is null ", Toast.LENGTH_SHORT).show();
                                 }
