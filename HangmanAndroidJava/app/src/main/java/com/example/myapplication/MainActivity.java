@@ -16,45 +16,75 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 public class MainActivity extends AppCompatActivity {
-    String selectedDifficulty = "";
+    private String selectedDifficulty = "Easy";
+    private String selectedCategory="All";
+
     public String getSelectedDiff() {
         return selectedDifficulty;
     }
     public void setSelectedDiff(String setter) {
         selectedDifficulty = setter;
     }
+    private String getSelectedCategory() {
+        return selectedCategory;
+    }
+    private void setSelectedCategory(String inputCategory) {
+        selectedCategory = inputCategory;
+    }
     ActivityResultLauncher<Intent> activityResultLauncher =
             registerForActivityResult(
                     new ActivityResultContracts.StartActivityForResult(),
-                    new ActivityResultCallback<ActivityResult>(){
+                    new ActivityResultCallback<ActivityResult>() {
                         @Override
-                        public void onActivityResult(ActivityResult activityResult){
+                        public void onActivityResult(ActivityResult activityResult) {
                             int result = activityResult.getResultCode();
                             Intent data = activityResult.getData();
 
-                            if(result == RESULT_OK) {
-                                if(data != null){
-                                    String selectedDiff = data.getStringExtra("difficulty");
-                                    setSelectedDiff(selectedDiff);
-                                    Toast.makeText(MainActivity.this, "Difficulty : " + selectedDiff, Toast.LENGTH_SHORT).show();
-                                    //Log.i("Difficulty Toast",selectedDiff);
+                            if (result == RESULT_OK && data != null) {
+                                String selectedDiff = data.getStringExtra("difficulty");
+                                String selectedCat = data.getStringExtra("category");
 
-                                }else {
-                                    Toast.makeText(MainActivity.this, "Difficulty is null ", Toast.LENGTH_SHORT).show();
+                                // Check if the user selected a difficulty
+                                if (data.getStringExtra("difficulty") != null) {
+                                    setSelectedDiff(selectedDiff);
+                                    Log.i("Difficulty", "Difficulty set by user: " + selectedDiff);
+                                } else {
+                                    // If no difficulty selected, default to "Easy"
+                                    setSelectedDiff("Easy");
+                                    Log.i("Difficulty", "Difficulty not set - defaulted to Easy");
                                 }
-                            }else{
-                                Toast.makeText(MainActivity.this, "Difficulty not selected ", Toast.LENGTH_SHORT).show();
+
+                                // Check if the user selected a category
+                                if (data.getStringExtra("category") != null) {
+                                    setSelectedCategory(selectedCat);
+                                    Log.i("Category", "Category set by user: " + selectedCat);
+                                } else {
+                                    // If no category selected, default to "All"
+                                    setSelectedCategory("All");
+                                    Log.i("Category", "Category not set - defaulted to All");
+                                }
+
+                                Log.i("Selected Difficulty", getSelectedDiff());
+                                Log.i("Selected Category", getSelectedCategory());
+                            } else {
+                                // Handle the case when no data is received or activity was canceled
+                                // For example, show a toast or log a message
                             }
                         }
                     });
-    private void startPlaying(String difficulty) {
+
+    private void startPlaying(String difficulty, String category) {
         Intent intent = new Intent(MainActivity.this, hang_game.class);
-        intent.putExtra("difficulty", difficulty);
-        //Log.i("Difficulty Toast",difficulty);
+        intent.putExtra("difficulty", getSelectedDiff());
+        intent.putExtra("category", getSelectedCategory());
+
         startActivity(intent);
     }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,34 +92,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //finds button
         Button play = findViewById(R.id.button);
-        Button diff = findViewById(R.id.button3);
+        Button mod = findViewById(R.id.button3);
         Button custom = findViewById(R.id.button2);
         ImageView set = findViewById(R.id.imageView2);
-
-
 
         //sets button to on click
         play.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 // starts new activity/ play button
-                startPlaying(getSelectedDiff());
+                startPlaying(getSelectedDiff(), getSelectedCategory());
             }
         });
 
-        // START DIFFICULTY SECTION
+        // START MODIFIER SECTION (DIFFICULTY + CATEGORY)
 
-        diff.setOnClickListener(new View.OnClickListener() {
+        mod.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Start DifficultyScreen activity
-                Intent intent = new Intent(MainActivity.this, difficulty_screen.class);
+                Intent intent = new Intent(MainActivity.this, modifier_screen.class);
                 activityResultLauncher.launch(intent);
             }
 
         });
 
-        // END DIFFICULTY SECTION
+        // END MODIFIER SECTION
 
 
         custom.setOnClickListener(new View.OnClickListener(){

@@ -22,11 +22,15 @@
             android:name=".difficulty_screen"
             android:exported="false" />
         <activity
-            android:name=".hang_game"
+            android:name=".category_screen"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".modifier_screen"
             android:exported="false" />
+        <activity
+            android:name=".hang_game"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

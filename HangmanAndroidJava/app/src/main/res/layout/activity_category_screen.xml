@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/space_background">
+
+    <!-- UI elements for category selection -->
+
+    <TextView
+        android:id="@+id/textChooseCategory"
+        android:layout_width="262dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="20dp"
+
+        android:text="Choose Category"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="48sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Button 1 -->
+    <FrameLayout
+        android:id="@+id/frameLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnCategory1"
+            android:layout_width="317dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:foreground="@drawable/purple_rect"
+            android:gravity="center"
+            android:text=""
+            android:textSize="54sp" />
+
+        <TextView
+            android:id="@+id/textCategory1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="All (Default)"
+            android:textColor="@android:color/white"
+            android:textSize="54sp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <!-- Button 2 -->
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="248dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnCategory2"
+            android:layout_width="317dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:foreground="@drawable/purple_rect"
+            android:gravity="center"
+            android:text=""
+            android:textSize="54sp" />
+
+        <TextView
+            android:id="@+id/textCategory2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Movies and TV"
+            android:textColor="@android:color/white"
+            android:textSize="54sp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <!-- Button 3 -->
+    <FrameLayout
+        android:id="@+id/frameLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="352dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnCategory3"
+            android:layout_width="317dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:foreground="@drawable/purple_rect"
+            android:text=""
+            android:gravity="center"
+            android:textSize="54sp" />
+
+        <TextView
+            android:id="@+id/textCategory3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Foods"
+            android:textColor="@android:color/white"
+            android:textSize="54sp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <!-- Button 4 -->
+    <FrameLayout
+        android:id="@+id/frameLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="456dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnCategory4"
+            android:layout_width="317dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:foreground="@drawable/purple_rect"
+            android:text=""
+            android:gravity="center"
+            android:textSize="54sp" />
+
+        <TextView
+            android:id="@+id/textCategory4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Capitals"
+            android:textColor="@android:color/white"
+            android:textSize="54sp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <!-- Button 5 -->
+    <FrameLayout
+        android:id="@+id/frameLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="560dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btnCategory5"
+            android:layout_width="317dp"
+            android:layout_height="61dp"
+            android:layout_gravity="center"
+            android:foreground="@drawable/purple_rect"
+            android:text=""
+            android:gravity="center"
+            android:textSize="54sp" />
+
+        <TextView
+            android:id="@+id/textCategory5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Video Games"
+            android:textColor="@android:color/white"
+            android:textSize="54sp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

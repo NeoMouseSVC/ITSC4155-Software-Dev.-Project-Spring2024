@@ -25,7 +25,7 @@ public class difficulty_screen extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        // Return button
+        /* Return button DEPRECATED
         Button returnButton = findViewById(R.id.return_difficulty);
         returnButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,6 +33,7 @@ public class difficulty_screen extends AppCompatActivity {
                 startActivity(new Intent(difficulty_screen.this, MainActivity.class));
             }
         });
+        */
 
         // Initialize buttons
         Button btnBeginner = findViewById(R.id.btnBeginner);
@@ -44,7 +45,7 @@ public class difficulty_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Pass difficulty back to MainActivity
-                sendDifficultyBack("Beginner");
+                sendDifficultyBack("Easy");
             }
         });
 
@@ -52,7 +53,7 @@ public class difficulty_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Pass difficulty back to MainActivity
-                sendDifficultyBack("Intermediate");
+                sendDifficultyBack("Medium");
             }
         });
 
@@ -60,14 +61,14 @@ public class difficulty_screen extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Pass difficulty back to MainActivity
-                sendDifficultyBack("Advanced");
+                sendDifficultyBack("Hard");
             }
         });
     }
 
     private void sendDifficultyBack(String difficulty) {
         // Create an intent to pass data back to MainActivity
-        Toast.makeText(difficulty_screen.this, "Difficulty: " + difficulty, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(difficulty_screen.this, "Difficulty: " + difficulty, Toast.LENGTH_SHORT).show();
         Intent data = new Intent();
         data.putExtra("difficulty", difficulty);
         setResult(RESULT_OK, data);

@@ -83,7 +83,7 @@
         android:layout_marginTop="110dp"
         android:layout_marginEnd="115dp"
         android:layout_marginBottom="159dp"
-        android:text="Category:  Food"
+        android:text="Category: All"
         android:textColor="@color/white"
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/madeit"
@@ -95,8 +95,8 @@
 
     <TextView
         android:id="@+id/difficulty"
-        android:layout_width="311dp"
-        android:layout_height="66dp"
+        android:layout_width="313dp"
+        android:layout_height="45dp"
         android:layout_marginStart="111dp"
         android:layout_marginTop="110dp"
         android:layout_marginEnd="115dp"
@@ -106,10 +106,10 @@
         android:textSize="48sp"
         app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.261"
+        app:layout_constraintHorizontal_bias="0.257"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.314" />
+        app:layout_constraintVertical_bias="0." />
 
     <TextView
         android:id="@+id/chances_counter"
