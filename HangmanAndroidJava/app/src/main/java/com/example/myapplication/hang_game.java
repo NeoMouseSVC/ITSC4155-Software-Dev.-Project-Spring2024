@@ -17,40 +17,12 @@ import java.util.Random;
 
 public class hang_game extends AppCompatActivity {
 
-    private final String[] Beginnerwords = {
-            "apple", "banana", "cherry", "elderberry",
-            "fig", "grape", "honeydew", "iceberg lettuce", "jalapeno",
-            "kiwi", "lemon", "mango", "nectarine", "orange",
-            "pineapple", "quinoa", "raspberry", "strawberry", "tomato",
-            "ugli fruit", "vanilla bean", "watermelon", "yellow pepper",
-            "zucchini", "yam", "wheat", "vinegar",
-            "tea", "squash", "radish", "quail", "pumpkin"
-    };
-
-    private final String[] Intermediatewords = {
-            "abundance", "bamboo", "caramel", "dandelion",
-            "eccentric", "flabbergasted", "gallivant", "haphazard", "indomitable",
-            "juxtaposition", "kaleidoscope", "labyrinth", "magnanimous", "nefarious",
-            "oblivion", "paradox", "quintessential", "recalcitrant", "serendipity",
-            "trepidation", "ubiquitous", "vagabond", "whimsical", "xenophobia",
-            "yesterday", "zephyr"
-    };
-
-    private final String[] Advancedwords = {
-            "antidisestablishmentarianism", "bewilderment", "capriciousness", "discombobulate",
-            "equanimity", "facetious", "garrulous", "horticulture", "idiosyncrasy",
-            "juxtapose", "kafkaesque", "lackadaisical", "mnemonic", "onomatopoeia",
-            "perspicacious", "quintessence", "recumbentibus", "sesquipedalian", "tenebrous",
-            "unabashed", "vociferous", "winsome", "xenoglossia", "yestreen",
-            "zeitgeist"
-    };
-
-
     private String currentWord;
     private char[] currentGuess;
     private int numberOfGuesses;
     private String selectedDiff;
     private String selectedCategory;
+    private String[] currentWordBank;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +42,7 @@ public class hang_game extends AppCompatActivity {
             String selected = i.getStringExtra("difficulty");
             setSelectedDiff(i.getStringExtra("difficulty"));
             setSelectedCategory(i.getStringExtra("category"));
-            // Category selection in mainActivity hasn't been implemented --> setSelectedCategory(i.getStringExtra("category"));
+
             Log.i("Difficulty in-game",getSelectedDiff());
             Log.i("Category in-game",getSelectedCategory());
             TextView difficultyText = findViewById(R.id.difficulty);
@@ -87,21 +59,25 @@ public class hang_game extends AppCompatActivity {
 
 
     private void startGame(String diff, String usercategory) {
-        String currentWord;
+
         String category = usercategory;
-        switch (diff.toLowerCase()) {
-            case "easy":
-                currentWord = getRandomWordBeginner(category);
-                break;
-            case "medium":
-                currentWord = getRandomWordIntermediate(category);
-                break;
-            case "hard":
-                currentWord = getRandomWordAdvanced(category);
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid difficulty level");
+        // Retrieve the word bank for the selected difficulty and category
+        Log.i("Word bank searching",getSelectedCategory());
+        Log.i("Word bank searching",getSelectedDiff());
+        currentWordBank = WordBanks.getWordBank(diff, category);
+
+        // Check if the word bank is empty
+        if (currentWordBank.length == 0) {
+            // Handle the case when the word bank is empty (e.g., no words available)
+            Log.e("Error", "Word bank is empty!");
+            return;
         }
+        Log.i("Word bank length", String.valueOf(currentWordBank.length));
+        // Choose a random word from the word bank
+        Random random = new Random();
+        currentWord = currentWordBank[random.nextInt(currentWordBank.length)];
+
+        Log.i("Word selected",currentWord);
 
         currentGuess = new char[currentWord.length()];
         for (int i = 0; i < currentWord.length(); i++) {
@@ -166,26 +142,6 @@ public class hang_game extends AppCompatActivity {
             spacedStr.append(c).append(" ");
         }
         return spacedStr.toString();
-    }
-
-    // FUNCTION TO GET RANDOM WORD, STILL WORKING ON HOW USER SELECTS CATEGORY
-    private String getRandomWordBeginner(String category) {
-        String currCategory = category;
-        Random random = new Random();
-        currentWord = Beginnerwords[random.nextInt(Beginnerwords.length)];
-        return currentWord;
-    }
-    private String getRandomWordIntermediate(String category) {
-        String currCategory = category;
-        Random random = new Random();
-        currentWord = Intermediatewords[random.nextInt(Intermediatewords.length)];
-        return currentWord;
-    }
-    private String getRandomWordAdvanced(String category) {
-        String currCategory = category;
-        Random random = new Random();
-        currentWord = Advancedwords[random.nextInt(Advancedwords.length)];
-        return currentWord;
     }
 
     private void makeGuess(char guess) {

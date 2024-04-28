@@ -132,7 +132,7 @@
             android:id="@+id/textCategory4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Capitals"
+            android:text="Countries"
             android:textColor="@android:color/white"
             android:textSize="54sp"
             android:layout_gravity="center" />

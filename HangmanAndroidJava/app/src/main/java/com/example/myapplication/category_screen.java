@@ -66,7 +66,7 @@ public class category_screen extends AppCompatActivity {
         btnCategory4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                sendCategoryBack("Capitals");
+                sendCategoryBack("Countries");
             }
         });
 

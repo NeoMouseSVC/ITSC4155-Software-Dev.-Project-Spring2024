@@ -1,1 +1,0 @@
-                mediumWords.add(word);
