@@ -245,13 +245,16 @@ public class hang_game extends AppCompatActivity {
         }
 
         if (new String(currentGuess).equals(currentWord)) {
-            Toast.makeText(this, "You guessed the word!", Toast.LENGTH_SHORT).show(); // Provide feedback on correct guess
+            Toast.makeText(this, "You guessed the word!", Toast.LENGTH_SHORT).show();// Provide feedback on correct guess
+            startActivity(new Intent(hang_game.this, win_screen.class));
+
             // Reset or start a new game and add win currency
             updateCurrency(getSelectedDiff());
             startGame(getSelectedDiff(),getSelectedCategory());
         } else if (numberOfGuesses == 0) {
             Toast.makeText(this, "You lost! The word was: " + currentWord, Toast.LENGTH_SHORT).show(); // Feedback on loss
             // Reset or start a new game
+            startActivity(new Intent(hang_game.this, lose_screen.class));
             startGame(getSelectedDiff(),getSelectedCategory());
         }
 
