@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.content.Intent;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -22,6 +23,12 @@ import android.preference.PreferenceManager;
 public class MainActivity extends AppCompatActivity {
     private String selectedDifficulty = "Easy";
     private String selectedCategory="All";
+
+    public static int currencyCount = 0;
+
+    TextView currencyView;
+    public static String currencyText;
+
 
     public String getSelectedDiff() {
         return selectedDifficulty;
@@ -95,6 +102,11 @@ public class MainActivity extends AppCompatActivity {
         Button mod = findViewById(R.id.button3);
         Button custom = findViewById(R.id.button2);
         ImageView set = findViewById(R.id.imageView2);
+
+        currencyView = currencyView = findViewById(R.id.textView3);
+        currencyText =currencyText = String.valueOf(currencyCount);
+        currencyView.setText(currencyText);
+
 
         //sets button to on click
         play.setOnClickListener(new View.OnClickListener(){

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,12 +16,18 @@ import androidx.fragment.app.FragmentManager;
 
 public class customize_screen extends AppCompatActivity {
 
+    TextView currencyView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customize_screen);
 
         FragmentManager fragmentManager = getSupportFragmentManager();
+
+        currencyView = findViewById(R.id.textView3);
+        currencyView.setText(MainActivity.currencyText);
 
             Button btnCharacter = findViewById(R.id.btnCharacter);
             btnCharacter.setOnClickListener(new View.OnClickListener() {

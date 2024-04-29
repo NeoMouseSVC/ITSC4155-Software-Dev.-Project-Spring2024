@@ -29,6 +29,7 @@ public class hang_game extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hang_game);
 
+
         Button hang_return = findViewById(R.id.hang_return);
         hang_return.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -219,7 +220,8 @@ public class hang_game extends AppCompatActivity {
 
         if (new String(currentGuess).equals(currentWord)) {
             Toast.makeText(this, "You guessed the word!", Toast.LENGTH_SHORT).show(); // Provide feedback on correct guess
-            // Reset or start a new game
+            // Reset or start a new game and add win currency
+            updateCurrency(getSelectedDiff());
             startGame(getSelectedDiff(),getSelectedCategory());
         } else if (numberOfGuesses == 0) {
             Toast.makeText(this, "You lost! The word was: " + currentWord, Toast.LENGTH_SHORT).show(); // Feedback on loss
@@ -228,6 +230,22 @@ public class hang_game extends AppCompatActivity {
         }
 
         updateScreen(); // Update the UI after guessing
+    }
+
+    private void updateCurrency(String diff) {
+        int increment = 0;
+        switch (diff.toLowerCase()) {
+            case "easy":
+                increment = 10;
+                break;
+            case "medium":
+                increment = 15;
+                break;
+            case "hard":
+                increment = 20;
+                break;
+        }
+        MainActivity.currencyCount += increment;
     }
 
 }
