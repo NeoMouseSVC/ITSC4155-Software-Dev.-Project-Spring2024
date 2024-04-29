@@ -80,25 +80,78 @@ public class hang_game extends AppCompatActivity {
         Log.i("Word selected",currentWord);
 
         currentGuess = new char[currentWord.length()];
+
+        // Initialize currentGuess to represent blanks, but retain special characters
         for (int i = 0; i < currentWord.length(); i++) {
-            currentGuess[i] = '_';
+            char c = currentWord.charAt(i);
+            if (c == ' ' || c == '-' || c == '\'') { // Retain spaces, hyphens, apostrophes
+                currentGuess[i] = c; // Keep these characters as they are
+            } else {
+                currentGuess[i] = '_'; // Use underscores for blanks
+            }
         }
+
         numberOfGuesses = 6;
         updateScreen();
     }
 
     private void updateScreen() {
         TextView wordTextView = findViewById(R.id.madeit);
-        wordTextView.setText(addSpaces(new String(currentGuess)));
 
+        // Construct the displayed word with appropriate spacing between characters
+        StringBuilder displayedWord = new StringBuilder();
+
+        for (int i = 0; i < currentGuess.length; i++) {
+            char c = currentGuess[i];
+            if (c == ' ') { // Represent spaces between words
+                displayedWord.append("   ");
+            } else {
+                displayedWord.append(c).append(" "); // Add space between characters
+            }
+        }
+
+        String[] words = displayedWord.toString().trim().split(" {3}"); // Split by space markers
+
+        StringBuilder line1 = new StringBuilder(); // First line content
+        StringBuilder line2 = new StringBuilder(); // Second line content
+
+        int maxCharsPerLine = 11; // Maximum characters per line
+        int currentCharCount = 0; // Track character count for the first line
+
+        // Distribute words to the appropriate line based on character limits
+        for (String word : words) {
+            if (currentCharCount + word.length() <= maxCharsPerLine) {
+                // If adding the word doesn't exceed the limit, add it to line 1
+                line1.append(word).append("   "); // Maintain spacing
+                currentCharCount += word.length() + 3; // Update character count
+            } else {
+                // Otherwise, add to line 2
+                line2.append(word).append("   ");
+            }
+        }
+
+        // Build the final text with correct line breaks
+        StringBuilder finalDisplay = new StringBuilder();
+        finalDisplay.append(line1.toString().trim());
+
+        if (line2.length() > 0) {
+            finalDisplay.append("\n").append(line2.toString().trim()); // Add newline for second line
+        }
+
+        wordTextView.setText(finalDisplay.toString()); // Set the text with appropriate spacing
+        wordTextView.setSingleLine(false); // Allow multiline text
+        wordTextView.setMaxLines(2); // Allow up to two lines
+
+        // Reset other UI components
         EditText guessField = findViewById(R.id.guessfeild);
-        guessField.setText("");
+        guessField.setText(""); // Reset guess field
+        guessField.requestFocus();
 
         TextView categoryTextView = findViewById(R.id.category);
-        categoryTextView.setText("Category:  " + getSelectedCategory());
+        categoryTextView.setText("Category: " + getSelectedCategory());
 
         TextView chancesTextView = findViewById(R.id.chances_counter);
-        chancesTextView.setText("Chances:  " + numberOfGuesses);
+        chancesTextView.setText("Chances: " + numberOfGuesses);
 
         Button guessButton = findViewById(R.id.guessButton);
         guessButton.setOnClickListener(new View.OnClickListener() {
@@ -110,6 +163,7 @@ public class hang_game extends AppCompatActivity {
                 }
             }
         });
+
         guessField.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -121,6 +175,7 @@ public class hang_game extends AppCompatActivity {
             }
         });
     }
+
 
     private String getSelectedDiff() {
         return selectedDiff;
@@ -145,25 +200,35 @@ public class hang_game extends AppCompatActivity {
     }
 
     private void makeGuess(char guess) {
+        if (currentWord == null) { // Ensure currentWord is not null
+            Log.e("Error", "Current word is null in makeGuess");
+            return;
+        }
+
         boolean isGuessCorrect = false;
         for (int i = 0; i < currentWord.length(); i++) {
-            if (currentWord.charAt(i) == guess) {
-                currentGuess[i] = guess;
+            if (Character.toLowerCase(currentWord.charAt(i)) == Character.toLowerCase(guess)) { // Case-insensitive matching
+                currentGuess[i] = currentWord.charAt(i); // Set the correct letter
                 isGuessCorrect = true;
             }
         }
 
         if (!isGuessCorrect) {
-            numberOfGuesses--;
+            numberOfGuesses--; // Decrease the number of guesses if the guess is incorrect
         }
 
         if (new String(currentGuess).equals(currentWord)) {
+            Toast.makeText(this, "You guessed the word!", Toast.LENGTH_SHORT).show(); // Provide feedback on correct guess
+            // Reset or start a new game
             startGame(getSelectedDiff(),getSelectedCategory());
         } else if (numberOfGuesses == 0) {
+            Toast.makeText(this, "You lost! The word was: " + currentWord, Toast.LENGTH_SHORT).show(); // Feedback on loss
+            // Reset or start a new game
             startGame(getSelectedDiff(),getSelectedCategory());
         }
 
-        updateScreen();
+        updateScreen(); // Update the UI after guessing
     }
+
 }
 

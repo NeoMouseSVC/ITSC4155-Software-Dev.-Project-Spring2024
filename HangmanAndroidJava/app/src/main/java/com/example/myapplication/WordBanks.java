@@ -15,20 +15,20 @@ public class WordBanks {
         wordBanks.put("Easy-MTV", new String[]{
                 "Spider-Man", "Jurassic Park", "Lion King", "Moana",
                 "Frozen", "The Simpsons", "Friends", "Seinfeld","Toy Story",
-                "Beauty and the Beast", "The Incredibles", "Finding Nemo", "Up",
+                "Beauty and the Beast", "Incredibles", "Finding Nemo", "Up",
                 "Mickey Mouse Clubhouse", "Sesame Street", "Blue's Clues", "Dora the Explorer", "Paw Patrol"
         });
 
         wordBanks.put("Medium-MTV", new String[]{
                 "The Hobbit", "Star Wars", "Harry Potter",
                 "Avengers", "The Office", "Breaking Bad", "Game of Thrones",
-                "Stranger Things", "The Walking Dead","Indiana Jones", "Jurassic World", "Pirates of the Caribbean",
-                "Hunger Games", "Lord of the Rings", "The Princess Bride", "The Big Bang Theory", "Modern Family", "How I Met Your Mother", "Grey's Anatomy"
+                "Stranger Things", "Walking Dead","Indiana Jones", "Jurassic World",
+                "Hunger Games", "Lord of the Rings", "Princess Bride", "Modern Family", "Grey's Anatomy"
         });
 
         wordBanks.put("Hard-MTV", new String[]{
                 "Mulholland Drive", "Blade Runner", "Parasite",
-                "Crouching Tiger, Hidden Dragon", "Whiplash", "Mad Men",
+                "Crouching Tiger", "Hidden Dragon", "Whiplash", "Mad Men",
                 "The Sopranos", "Six Feet Under", "True Detective", "Fargo",
                 "The Shining", "Pulp Fiction", "Inception", "Amélie", "Spirited Away",
                 "Westworld", "BoJack Horseman", "Arrested Development", "The Good Place"
@@ -71,7 +71,7 @@ public class WordBanks {
         });
 
         wordBanks.put("Hard-Countries", new String[]{
-                "Mozambique", "Liechtenstein", "Azerbaijan", "Bhutan", "Cambodia", "Ethiopia", "Fiji",
+                "Mozambique", "Azerbaijan", "Bhutan", "Cambodia", "Ethiopia", "Fiji",
                 "Guyana", "Iceland", "Kazakhstan", "Kyrgyzstan", "Luxembourg","Madagascar", "Malawi",
                 "Mongolia", "Montenegro","Nepal", "Nicaragua", "Senegal", "Slovenia", "Tanzania", "Uganda", "Uruguay"
         });
@@ -90,8 +90,9 @@ public class WordBanks {
         });
 
         wordBanks.put("Hard-Video Games", new String[]{
-                "Superhot", "Xenogears", "Ultima", "Demon's Souls", "Brawlhalla",
+                 "Superhot", "Xenogears", "Ultima", "Demon's Souls", "Brawlhalla",
                 "Assetto Corsa", "Lethal Company", "Brawl Stars", "Dark Souls"
+
         });
     }
 
