@@ -282,6 +282,7 @@ public class hang_game extends AppCompatActivity {
                 break;
         }
         MainActivity.currencyCount += increment;
+        PreferenceUtils.saveCurrencyCount(this, MainActivity.currencyCount);
     }
 
 }

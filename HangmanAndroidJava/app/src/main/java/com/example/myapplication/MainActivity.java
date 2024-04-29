@@ -93,6 +93,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+    private int getCurrencyCount() {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        return preferences.getInt("currency_count", 0); // Default value is 0 if not found
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
         Button mod = findViewById(R.id.button3);
         Button custom = findViewById(R.id.button2);
         ImageView set = findViewById(R.id.imageView2);
+
+        // Retrieve currency count from SharedPreferences
+        currencyCount = PreferenceUtils.getCurrencyCount(this);
+        PreferenceUtils.saveCurrencyCount(this, currencyCount);
 
         currencyView = currencyView = findViewById(R.id.textView3);
         currencyText =currencyText = String.valueOf(currencyCount);
