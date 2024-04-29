@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,18 @@ public class hang_game extends AppCompatActivity {
     private String selectedDiff;
     private String selectedCategory;
     private String[] currentWordBank;
+
+    private static final int MAX_INCORRECT_GUESSES = 6;
+    private static final int[] HANGMAN_PARTS = {
+            R.id.hang_head,
+            R.id.hang_body,
+            R.id.hang_left_arm,
+            R.id.hang_right_arm,
+            R.id.hang_left_leg,
+            R.id.hang_right_leg
+    };
+
+    private int currentIncorrectGuesses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +73,15 @@ public class hang_game extends AppCompatActivity {
 
 
     private void startGame(String diff, String usercategory) {
+
+        // Reset the number of incorrect guesses at the start of each game
+        currentIncorrectGuesses = 0;
+        findViewById(R.id.hang_head).setVisibility(View.INVISIBLE);
+        findViewById(R.id.hang_body).setVisibility(View.INVISIBLE);
+        findViewById(R.id.hang_left_arm).setVisibility(View.INVISIBLE);
+        findViewById(R.id.hang_right_arm).setVisibility(View.INVISIBLE);
+        findViewById(R.id.hang_left_leg).setVisibility(View.INVISIBLE);
+        findViewById(R.id.hang_right_leg).setVisibility(View.INVISIBLE);
 
         String category = usercategory;
         // Retrieve the word bank for the selected difficulty and category
@@ -215,7 +237,11 @@ public class hang_game extends AppCompatActivity {
         }
 
         if (!isGuessCorrect) {
+            currentIncorrectGuesses++;
             numberOfGuesses--; // Decrease the number of guesses if the guess is incorrect
+            if (currentIncorrectGuesses <= MAX_INCORRECT_GUESSES) {
+                showHangmanPart(currentIncorrectGuesses - 1);
+            }
         }
 
         if (new String(currentGuess).equals(currentWord)) {
@@ -230,6 +256,13 @@ public class hang_game extends AppCompatActivity {
         }
 
         updateScreen(); // Update the UI after guessing
+    }
+    private void showHangmanPart(int partIndex) {
+        // Ensure that the index is within the bounds of the array
+        if (partIndex >= 0 && partIndex < HANGMAN_PARTS.length) {
+            ImageView hangmanPart = findViewById(HANGMAN_PARTS[partIndex]);
+            hangmanPart.setVisibility(View.VISIBLE);
+        }
     }
 
     private void updateCurrency(String diff) {
