@@ -245,17 +245,25 @@ public class hang_game extends AppCompatActivity {
         }
 
         if (new String(currentGuess).equals(currentWord)) {
-            Toast.makeText(this, "You guessed the word!", Toast.LENGTH_SHORT).show();// Provide feedback on correct guess
-            startActivity(new Intent(hang_game.this, win_screen.class));
+            Toast.makeText(this, "You guessed the word!", Toast.LENGTH_SHORT).show();
+            Intent winIntent = new Intent(hang_game.this, win_screen.class);
 
-            // Reset or start a new game and add win currency
-            updateCurrency(getSelectedDiff());
-            startGame(getSelectedDiff(),getSelectedCategory());
+            // Pass the difficulty and category for reference
+            winIntent.putExtra("difficulty", getSelectedDiff());
+            winIntent.putExtra("category", getSelectedCategory());
+
+            startActivity(winIntent);
+            finish(); // Finish the current activity to avoid multiple instances
         } else if (numberOfGuesses == 0) {
-            Toast.makeText(this, "You lost! The word was: " + currentWord, Toast.LENGTH_SHORT).show(); // Feedback on loss
-            // Reset or start a new game
-            startActivity(new Intent(hang_game.this, lose_screen.class));
-            startGame(getSelectedDiff(),getSelectedCategory());
+            Toast.makeText(this, "You lost! The word was: " + currentWord, Toast.LENGTH_SHORT).show();
+            Intent loseIntent = new Intent(hang_game.this, lose_screen.class);
+
+            // Pass the difficulty and category for reference
+            loseIntent.putExtra("difficulty", getSelectedDiff());
+            loseIntent.putExtra("category", getSelectedCategory());
+
+            startActivity(loseIntent);
+            finish(); // Ensure the current activity is finished
         }
 
         updateScreen(); // Update the UI after guessing
