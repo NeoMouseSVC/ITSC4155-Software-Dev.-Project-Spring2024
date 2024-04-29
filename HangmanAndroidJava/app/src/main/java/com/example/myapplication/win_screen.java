@@ -28,8 +28,18 @@ public class win_screen extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // starts new activity/ play button
-                startActivity(new Intent(win_screen.this, hang_game.class));
+                Intent intent = new Intent(win_screen.this, hang_game.class);
+
+                // Retrieve the difficulty and category passed to lose_screen
+                String difficulty = getIntent().getStringExtra("difficulty");
+                String category = getIntent().getStringExtra("category");
+
+                // Add them as extras to the intent for starting a new hang_game
+                intent.putExtra("difficulty", difficulty);
+                intent.putExtra("category", category);
+
+                startActivity(intent);
+                finish(); // Ensure the current activity is finished to avoid multiple instances
             }
         });
         Button ExitButton = findViewById(R.id.los_exit);
