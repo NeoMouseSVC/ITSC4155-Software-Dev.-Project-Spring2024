@@ -251,7 +251,7 @@ public class hang_game extends AppCompatActivity {
             // Pass the difficulty and category for reference
             winIntent.putExtra("difficulty", getSelectedDiff());
             winIntent.putExtra("category", getSelectedCategory());
-
+            updateCurrency(getSelectedDiff());
             startActivity(winIntent);
             finish(); // Finish the current activity to avoid multiple instances
         } else if (numberOfGuesses == 0) {
