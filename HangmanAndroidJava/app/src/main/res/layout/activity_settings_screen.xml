@@ -5,27 +5,36 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/space_background"
     tools:context=".settings_screen">
+
+
+
 
     <Switch
         android:id="@+id/switch1"
         android:layout_width="257dp"
-        android:layout_height="80dp"
-        android:text="Music"
-        android:textSize="34sp"
+        android:layout_height="56dp"
+        android:background="@drawable/purple_rect"
+        android:text="    Music"
+        android:textColor="#FFFFFF"
+        android:textSize="42sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.112" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
         android:text="Settings"
         android:textAlignment="center"
-        android:textSize="48sp"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
+        android:textColor="#FFFFFF"
+        android:textSize="58sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -34,37 +43,54 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Credits:"
-        android:textSize="34sp"
+        android:text="Creators:"
+        android:textColor="#FFFFFF"
+        android:textSize="44sp"
         app:layout_constraintBottom_toTopOf="@+id/editTextText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+        app:layout_constraintTop_toBottomOf="@+id/switch1"
+        app:layout_constraintVertical_bias="0.878" />
 
     <TextView
         android:id="@+id/editTextText"
-        android:layout_width="249dp"
-        android:layout_height="92dp"
+        android:layout_width="246dp"
+        android:layout_height="129dp"
+        android:layout_marginBottom="168dp"
         android:ems="10"
-        android:inputType="text"
-        android:text="Group 8"
+        android:singleLine="false"
+        android:text="@string/credits_text"
         android:textAlignment="center"
+        android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/return_set"
+    <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="311dp"
-        android:layout_marginBottom="386dp"
-        android:text="Return"
-        app:layout_constraintBottom_toTopOf="@+id/switch1"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp">
+
+        <Button
+            android:id="@+id/return_set"
+            android:layout_width="180dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:foreground="@drawable/purple_rect" />
+
+        <TextView
+            android:id="@+id/textReturn"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_gravity="center"
+            android:text="Return "
+            android:textColor="@android:color/white"
+            android:textSize="54sp" />
+
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

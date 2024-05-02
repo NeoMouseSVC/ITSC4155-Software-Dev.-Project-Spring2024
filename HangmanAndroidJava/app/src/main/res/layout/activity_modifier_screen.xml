@@ -7,19 +7,17 @@
     android:layout_height="match_parent"
     android:background="@drawable/space_background">
 
-    <!-- UI elements for modifier selection -->
 
-    <!-- Difficulty Button -->
     <TextView
         android:id="@+id/textChooseModifier"
         android:layout_width="262dp"
-        android:layout_height="65dp"
+        android:layout_height="85dp"
         android:layout_marginTop="16dp"
 
         android:gravity="center"
         android:text="Choose Modifier"
         android:textColor="@android:color/white"
-        android:textSize="38sp"
+        android:textSize="58sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,7 +37,7 @@
             android:foreground="@drawable/purple_rect"
             android:text=""
             android:gravity="center"
-            android:textSize="54sp" />
+            android:textSize="74sp" />
 
         <TextView
             android:id="@+id/textDifficulty"
@@ -47,12 +45,12 @@
             android:layout_height="wrap_content"
             android:text="Difficulty"
             android:textColor="@android:color/white"
-            android:textSize="24sp"
+            android:textSize="54sp"
             android:layout_gravity="center" />
 
     </FrameLayout>
 
-    <!-- Category Button -->
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -75,7 +73,7 @@
             android:layout_height="wrap_content"
             android:text="Category"
             android:textColor="@android:color/white"
-            android:textSize="24sp"
+            android:textSize="54sp"
             android:layout_gravity="center" />
 
     </FrameLayout>
@@ -104,7 +102,7 @@
             android:layout_gravity="center"
             android:text="Done"
             android:textColor="@android:color/white"
-            android:textSize="24sp" />
+            android:textSize="46sp" />
 
     </FrameLayout>
 

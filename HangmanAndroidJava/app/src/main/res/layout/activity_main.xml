@@ -73,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="285dp"
         android:layout_marginTop="16dp"
-        android:text="TextView"
+        android:text=""
         android:textColor="@color/white"
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
