@@ -11,12 +11,13 @@
     tools:context=".customize_screen">
 
     <FrameLayout
+        android:id="@+id/frameLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginStart="16dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/return_customize"
@@ -56,7 +57,23 @@
         android:shape="rectangle"
         android:text="Character"
         android:textSize="24sp"
+        android:foreground="@drawable/purple_rect"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toStartOf="@+id/btnTheme"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textCharacter"
+        android:layout_width="118dp"
+        android:layout_height="47dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="280dp"
+        android:text="Character "
+        android:textColor="@android:color/white"
+        android:textSize="37sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -67,6 +84,21 @@
         android:layout_marginTop="100dp"
         android:text="Theme"
         android:textSize="24sp"
+        android:foreground="@drawable/purple_rect"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="120dp"
+        android:text="Theme "
+        android:textColor="@android:color/white"
+        android:textSize="54sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -78,8 +110,24 @@
         android:layout_marginTop="100dp"
         android:text="Store"
         android:textSize="24sp"
+        android:foreground="@drawable/purple_rect"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/btnTheme"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textStore"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="120dp"
+        android:text="Store "
+        android:textColor="@android:color/white"
+        android:textSize="54sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.fragment.app.FragmentContainerView
