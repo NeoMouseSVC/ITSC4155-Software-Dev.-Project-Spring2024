@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -18,6 +19,16 @@ public class customize_screen extends AppCompatActivity {
 
     TextView currencyView;
 
+    private ThemeFragment themeFragment;
+    private StoreFragment storeFragment;
+    private CharacterFragment characterFragment;
+
+    public static int themeButton1 = 0;
+    public static int themeButton2;
+    public static int themeButton3;
+    public static int themeButton4;
+    public static int themeButton5;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +37,18 @@ public class customize_screen extends AppCompatActivity {
 
         FragmentManager fragmentManager = getSupportFragmentManager();
 
+        // Retrieve the saved background drawable ID from shared preferences
+        int backgroundDrawableId = PreferenceUtils.getThemeButton1(this);
+        updateBackground(backgroundDrawableId);
+
+
         currencyView = findViewById(R.id.textView3);
         currencyView.setText(MainActivity.currencyText);
+
+        themeFragment = new ThemeFragment();
+        storeFragment = new StoreFragment();
+        characterFragment = new CharacterFragment();
+
 
             Button btnCharacter = findViewById(R.id.btnCharacter);
             btnCharacter.setOnClickListener(new View.OnClickListener() {
@@ -77,4 +98,22 @@ public class customize_screen extends AppCompatActivity {
             }
         });
         };
+        public void updateBackground(int drawableId) {
+            ConstraintLayout mainLayout = findViewById(R.id.main);
+            mainLayout.setBackgroundResource(drawableId);
+
+            // Save the selected background drawable ID in shared preferences
+            PreferenceUtils.saveThemeButton1(this, drawableId);
+        }
+
+        public ThemeFragment getThemeFragment() {
+            return themeFragment;
+        }
+        public StoreFragment getStoreFragment() {
+            return storeFragment;
+        }
+        public CharacterFragment getCharacterFragment() {
+            return characterFragment;
+        }
+
     }

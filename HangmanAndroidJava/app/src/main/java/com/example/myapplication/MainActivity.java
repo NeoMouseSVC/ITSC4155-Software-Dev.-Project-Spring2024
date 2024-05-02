@@ -17,6 +17,8 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
@@ -100,10 +102,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        int selectedTheme = PreferenceUtils.getThemeButton1(this);
+        findViewById(R.id.main).setBackgroundResource(selectedTheme);
+
         //finds button
         Button play = findViewById(R.id.button);
         Button mod = findViewById(R.id.button3);
@@ -117,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
         currencyView = currencyView = findViewById(R.id.textView3);
         currencyText =currencyText = String.valueOf(currencyCount);
         currencyView.setText(currencyText);
+
+
 
 
         //sets button to on click

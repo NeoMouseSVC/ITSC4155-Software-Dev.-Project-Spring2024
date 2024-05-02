@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import java.util.Random;
 
@@ -41,6 +42,9 @@ public class hang_game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hang_game);
+
+        int selectedTheme = PreferenceUtils.getThemeButton1(this);
+        findViewById(R.id.main).setBackgroundResource(selectedTheme);
 
 
         Button hang_return = findViewById(R.id.hang_return);
@@ -292,6 +296,8 @@ public class hang_game extends AppCompatActivity {
         MainActivity.currencyCount += increment;
         PreferenceUtils.saveCurrencyCount(this, MainActivity.currencyCount);
     }
+
+
 
 }
 

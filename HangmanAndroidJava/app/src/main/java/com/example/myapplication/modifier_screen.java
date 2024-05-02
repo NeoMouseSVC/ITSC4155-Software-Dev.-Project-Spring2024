@@ -10,6 +10,7 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class modifier_screen extends AppCompatActivity {
 
@@ -49,10 +50,15 @@ public class modifier_screen extends AppCompatActivity {
                         }
                     });
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modifier_screen);
+
+        int selectedTheme = PreferenceUtils.getThemeButton1(this);
+        findViewById(R.id.main).setBackgroundResource(selectedTheme);
 
         Button btnDifficulty = findViewById(R.id.btnDifficulty);
         Button btnCategory = findViewById(R.id.btnCategory);

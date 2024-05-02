@@ -9,47 +9,84 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
 public class ThemeFragment extends Fragment {
+
+    public static LinearLayout colorContainer;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_theme, container, false);
 
-        LinearLayout colorContainer = view.findViewById(R.id.colorContainer);
+        colorContainer = view.findViewById(R.id.colorContainer);
 
-        // an array of colors for the buttons
-        int[] colors = {Color.parseColor("#FFC0CB"), Color.parseColor("#ADD8E6"), Color.parseColor("#90EE90")}; // Light red, light blue, light green
+        // Retrieve the selected background drawable ID from SharedPreferences
+        int backgroundDrawableId = PreferenceUtils.getThemeButton1(requireContext());
+        updateBackground(backgroundDrawableId);
 
-        // an array of color names
-        String[] colorNames = {"Light Red", "Light Blue", "Light Green"};
+        ImageButton themeButton1 = view.findViewById(R.id.themeButton1);
+        ImageButton themeButton2 = view.findViewById(R.id.themeButton2);
+        ImageButton themeButton3 = view.findViewById(R.id.themeButton3);
+        ImageButton themeButton4 = view.findViewById(R.id.themeButton4);
+        ImageButton themeButton5 = view.findViewById(R.id.themeButton5);
+        ImageButton themeButton6 = view.findViewById(R.id.themeButton6);
 
-        for (int i = 0; i < colors.length; i++) {
-            Button button = new Button(getContext());
-            button.setBackgroundColor(colors[i]);
-            button.setText(colorNames[i]);
-            button.setTextSize(24); // Adjust this value as needed
+        themeButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.retro_background_1);
+            }
+        });
 
-            // Set layout parameters as needed, for example:
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 300); // Adjust these values as needed
-            button.setLayoutParams(layoutParams);
+        themeButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.retro_background_2);
+            }
+        });
 
-            int finalI = i;
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Change the background color of the app
-                    view.getRootView().setBackgroundColor(colors[finalI]);
-                }
-            });
+        themeButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.retro_background_3);
+            }
+        });
 
-            colorContainer.addView(button);
-        }
+        themeButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.retro_background_4);
+            }
+        });
+
+        themeButton5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.retro_background_5);
+            }
+        });
+        themeButton6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.space_background);
+            }
+        });
+
 
         return view;
     }
+
+    private void updateBackground(int drawableId) {
+        if (getActivity() instanceof customize_screen) {
+            ((customize_screen) getActivity()).updateBackground(drawableId);
+        }
+
+    }
 }
+
 

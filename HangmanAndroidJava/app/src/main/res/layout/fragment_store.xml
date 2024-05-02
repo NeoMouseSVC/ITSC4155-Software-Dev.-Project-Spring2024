@@ -1,16 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".StoreFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Store Fragment"
-        android:textAlignment="center"
-        android:textSize="34sp" />
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:orientation="horizontal">
+        <Button
+            android:id="@+id/Button1"
+            android:layout_width="wrap_content"
+            android:text="Yes"
+            android:textSize="50sp"
+            android:visibility="gone"
+            android:layout_height="80sp"/>
 
-</FrameLayout>
+         <TextView
+             android:id="@+id/textView1"
+             android:layout_width="wrap_content"
+             android:text="Confirm Purchase?"
+             android:textSize="30sp"
+             android:layout_marginLeft="17sp"
+             android:layout_marginRight="17sp"
+             android:visibility="gone"
+             android:layout_height="80sp"/>
+
+        <Button
+            android:id="@+id/Button2"
+            android:layout_width="wrap_content"
+            android:text="No"
+            android:textSize="50sp"
+            android:visibility="gone"
+            android:layout_height="80sp"/>
+
+
+     </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageButton
+            android:id="@+id/themeButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="125sp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10sp"
+            android:visibility="gone"
+            android:background="@drawable/retro_background_1"/>
+
+        <ImageButton
+            android:id="@+id/themeButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="125sp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/retro_background_2"/>
+
+        <ImageButton
+            android:id="@+id/themeButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="125sp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/retro_background_3"/>
+
+        <ImageButton
+            android:id="@+id/themeButton4"
+            android:layout_width="wrap_content"
+            android:layout_height="125sp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/retro_background_4"/>
+
+        <ImageButton
+            android:id="@+id/themeButton5"
+            android:layout_width="wrap_content"
+            android:layout_height="125sp"
+            android:scaleType="fitCenter"
+            android:layout_marginTop="10sp"
+            android:background="@drawable/retro_background_5"/>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10sp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/headButton1"
+                android:layout_width="125sp"
+                android:layout_height="125sp"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@color/darkPurple"
+                android:src="@drawable/head_customized_8" />
+            <ImageButton
+                android:id="@+id/headButton2"
+                android:layout_width="125sp"
+                android:layout_height="125sp"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@color/lightPurple"
+                android:src="@drawable/head_customized_9" />
+            <ImageButton
+                android:id="@+id/headButton3"
+                android:layout_width="125sp"
+                android:layout_height="125sp"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@color/darkPurple"
+                android:src="@drawable/head_customized_10" />
+            <ImageButton
+                android:id="@+id/headButton4"
+                android:layout_width="125sp"
+                android:layout_height="125sp"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@color/lightPurple"
+                android:src="@drawable/head_customized_11" />
+            <ImageButton
+                android:id="@+id/headButton5"
+                android:layout_width="125sp"
+                android:layout_height="125sp"
+                android:scaleType="fitCenter"
+                android:backgroundTint="@color/darkPurple"
+                android:src="@drawable/head_customized_12" />
+
+
+
+
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+
+</LinearLayout>
