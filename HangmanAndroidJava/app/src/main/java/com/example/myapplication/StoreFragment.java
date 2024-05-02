@@ -59,7 +59,7 @@ public class StoreFragment extends Fragment {
                     showPurchaseConfirmation(v);
                 } else {
                     // Show message indicating insufficient funds
-                    Toast.makeText(getContext(), "Insufficient funds", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Insufficient funds, costs $20", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -73,7 +73,7 @@ public class StoreFragment extends Fragment {
                     showPurchaseConfirmation(v);
                 } else {
                     // Show message indicating insufficient funds
-                    Toast.makeText(getContext(), "Insufficient funds", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Insufficient funds, costs $20", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -86,7 +86,7 @@ public class StoreFragment extends Fragment {
                     showPurchaseConfirmation(v);
                 } else {
                     // Show message indicating insufficient funds
-                    Toast.makeText(getContext(), "Insufficient funds", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Insufficient funds, costs $20", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -100,7 +100,7 @@ public class StoreFragment extends Fragment {
                     showPurchaseConfirmation(v);
                 } else {
                     // Show message indicating insufficient funds
-                    Toast.makeText(getContext(), "Insufficient funds", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Insufficient funds, costs $20", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -115,7 +115,7 @@ public class StoreFragment extends Fragment {
                     showPurchaseConfirmation(v);
                 } else {
                     // Show message indicating insufficient funds
-                    Toast.makeText(getContext(), "Insufficient funds", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Insufficient funds, costs $20", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -151,6 +151,7 @@ public class StoreFragment extends Fragment {
                 }
                 if(v.getId() == themeButton2.getId()){
                     customize_screen.themeButton2 = 1;
+                    PreferenceUtils.saveThemeButton1(getContext(), customize_screen.themeButton2);
                 }
                 if(v.getId() == themeButton3.getId()){
                     customize_screen.themeButton3 = 1;
