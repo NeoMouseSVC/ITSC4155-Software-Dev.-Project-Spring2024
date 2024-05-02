@@ -19,7 +19,7 @@
         android:background="@drawable/space_background"/>
 
     <ImageButton
-        android:id="@+id/themeButton6"
+        android:id="@+id/themeButton7"
         android:layout_width="wrap_content"
         android:layout_height="125sp"
         android:scaleType="fitCenter"
@@ -27,7 +27,7 @@
         android:background="@drawable/si_recolor_background"/>
 
     <ImageButton
-        android:id="@+id/themeButton6"
+        android:id="@+id/themeButton8"
         android:layout_width="wrap_content"
         android:layout_height="125sp"
         android:scaleType="fitCenter"
@@ -35,7 +35,7 @@
         android:background="@drawable/pacman_background"/>
 
     <ImageButton
-        android:id="@+id/themeButton6"
+        android:id="@+id/themeButton9"
         android:layout_width="wrap_content"
         android:layout_height="125sp"
         android:scaleType="fitCenter"
@@ -51,7 +51,7 @@
         android:background="@drawable/retro_background_1"/>
 
     <ImageButton
-        android:id="@+id/themeButton6"
+        android:id="@+id/themeButton10"
         android:layout_width="wrap_content"
         android:layout_height="125sp"
         android:scaleType="fitCenter"

@@ -1,6 +1,8 @@
 package com.example.myapplication;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -25,6 +27,8 @@ public class hang_game extends AppCompatActivity {
     private String selectedDiff;
     private String selectedCategory;
     private String[] currentWordBank;
+    private static final int HANGMAN_HEAD_ID = R.id.hang_head;
+    private SharedPreferences sharedPreferences;
 
     private static final int MAX_INCORRECT_GUESSES = 6;
     private static final int[] HANGMAN_PARTS = {
@@ -45,6 +49,15 @@ public class hang_game extends AppCompatActivity {
 
         int selectedTheme = PreferenceUtils.getThemeButton1(this);
         findViewById(R.id.main).setBackgroundResource(selectedTheme);
+
+        sharedPreferences = getSharedPreferences("HangmanPrefs", Context.MODE_PRIVATE);
+
+        // Retrieve the selected head image resource ID from SharedPreferences
+        int selectedHeadImageId = sharedPreferences.getInt("hangman_head_image", R.drawable.head);
+
+        // Update the hangman's head ImageView with the selected image resource
+        ImageView hangmanHeadImageView = findViewById(HANGMAN_HEAD_ID);
+        hangmanHeadImageView.setImageResource(selectedHeadImageId);
 
 
         Button hang_return = findViewById(R.id.hang_return);

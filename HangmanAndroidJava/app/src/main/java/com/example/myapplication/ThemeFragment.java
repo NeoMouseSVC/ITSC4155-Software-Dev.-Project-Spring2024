@@ -35,6 +35,11 @@ public class ThemeFragment extends Fragment {
         ImageButton themeButton4 = view.findViewById(R.id.themeButton4);
         ImageButton themeButton5 = view.findViewById(R.id.themeButton5);
         ImageButton themeButton6 = view.findViewById(R.id.themeButton6);
+        ImageButton themeButton7 = view.findViewById(R.id.themeButton7);
+        ImageButton themeButton8 = view.findViewById(R.id.themeButton8);
+        ImageButton themeButton9 = view.findViewById(R.id.themeButton9);
+        ImageButton themeButton10 = view.findViewById(R.id.themeButton10);
+
 
         themeButton1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +81,34 @@ public class ThemeFragment extends Fragment {
                 updateBackground(R.drawable.space_background);
             }
         });
+
+        themeButton7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.si_recolor_background);
+            }
+        });
+
+        themeButton8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.pacman_background);
+            }
+        });
+
+        themeButton9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.dk_background);
+            }
+        });
+        themeButton10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateBackground(R.drawable.gamer__blur_backrgound);
+            }
+        });
+
 
 
         return view;

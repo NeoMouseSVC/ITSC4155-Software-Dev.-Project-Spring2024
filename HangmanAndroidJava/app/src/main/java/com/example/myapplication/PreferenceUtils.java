@@ -35,5 +35,6 @@ public class PreferenceUtils {
         return preferences.getInt(PREF_THEME_BUTTON_1, 0); // Default value is 0 if not found
     }
 
+
     // Add methods for other preferences as needed
 }
