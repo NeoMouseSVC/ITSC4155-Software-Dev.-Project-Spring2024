@@ -32,7 +32,7 @@ public class settings_screen extends AppCompatActivity {
         });
 
         // Initialize the MediaPlayer object with your MP3 file
-        mediaPlayer = MediaPlayer.create(this, R.raw.music);
+        mediaPlayer = MediaPlayer.create(this, R.raw.retro_song);
         mediaPlayer.setLooping(true); // Set looping
         mediaPlayer.start(); // Start playing the music
 
